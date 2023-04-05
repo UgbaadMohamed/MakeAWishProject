@@ -1,0 +1,127 @@
+body {
+    font-family: Lato, sans-serif;
+}
+
+#menuHeader {
+    font-family: ".SF NS Display", sans-serif;
+    position: absolute;
+    font-weight: bold;
+    color: #d4c3fa;
+    padding: 10px;
+    font-size: 40px;
+    filter: blur(2px);
+}
+
+.card {
+    width: 350px;
+    height: 500px;
+    margin-top: 10px;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    margin-top: 75px;
+    background-image: url("foto.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+}
+
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.inner-box {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.card-front,
+.card-back {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+}
+.card h1 {
+    font-weight: normal;
+    font-size: 24px;
+    text-align: center;
+    transform: translate(-0%, -1600%);
+    font-weight: bolder;
+}
+
+.input-box {
+    background: transparent;
+    border: 1px solid #fff;
+    outline: none;
+    color: #fff;
+    text-align: center;
+    transform: translate(-0%, -2100%);
+    margin-left: 45px;
+    width: 260px;
+    font-weight: bolder;
+
+}
+
+::placeholder {
+    color: white;
+    font-size: 12px;
+    font-weight: bolder;
+}
+
+button {
+    font-weight: bolder;
+    text-align: center;
+    transform: translate(-0%, -2300%);
+    background: transparent;
+    border: 1px solid #fff;
+    font-size: 11px;
+    color: white;
+    margin-left: 115px;
+    width: 120px;
+    border-radius: 10px;
+}
+.btn:hover{
+    text-transform: uppercase;
+    color: #c4b3ea;
+    background: white;
+    font-weight: bolder;
+}
+.submit-btn:hover {
+    background: #d4c3fa;
+    font-weight: bolder;
+}
+
+.btn-2:hover{
+    text-transform: uppercase;
+    color: #ae9adc;
+    background: white;
+    font-weight: bolder;
+}
+
+
+
+
+
+
