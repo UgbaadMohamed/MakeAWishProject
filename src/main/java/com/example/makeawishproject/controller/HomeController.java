@@ -21,14 +21,14 @@ public class HomeController {
         model.addAttribute("wishlists",wishList);
         return "home/homePage";
     }
-    @GetMapping("/createWishList")
-    public String createlist(){
+    @GetMapping("/createList")
+    public String createList(){
         return "home/createList";
     }
 
 
     @PostMapping("/makeList")
-    public String createNew(@ModelAttribute WishList wishList){
+    public String makeList(@ModelAttribute WishList wishList){
         wishListService.createWishList(wishList);
         return "redirect:/";
     }

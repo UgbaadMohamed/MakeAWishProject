@@ -7,7 +7,7 @@
 <body>
     <h1 MAKE A WISH style="background-color: mediumpurple"></h1>
 
-    <a href ="/create">
+    <a href ="/createList">
         <button class="btn-create, btn" id="btn-create">Create a wishlist </button>
     </a>
     <table>
@@ -21,7 +21,7 @@
         </thead>
         <tbody>
         <tr th:each="wishlist: ${wishlists}">
-            <td th:text="${wishlist.id}"/>
+            <td th:text="${wishlist.wishlist_id}"/>
             <td th:text="${wishlist.wishlist_name}"/>
             <td th:text="${wishlist.item_name}"/>
             <td th:text="${wishlist.item_description}"/>
