@@ -1,5 +1,5 @@
 package com.example.makeawishproject.model;
-public class UserModel {
+public class User {
 
     private int user_id;
     private String first_name;
@@ -8,10 +8,10 @@ public class UserModel {
     private String username;
     private String user_password;
 
-    public UserModel() {
+    public User() {
 
     }
-    public UserModel(int user_id, String first_name, String last_name, String address, String username, String user_password) {
+    public User(int user_id, String first_name, String last_name, String address, String username, String user_password) {
         this.user_id = user_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -66,5 +66,20 @@ public class UserModel {
 
     public void setUser_password(String user_password) {
         this.user_password = user_password;
+    }
+
+    //methode to check if login exsist
+    public void ValidateLogin (String username, String user_password) {
+        boolean isValid = false;
+
+        while (!isValid) {
+            //Enter username and username:
+            if (username.equals(this.username) && user_password.equals(this.user_password))
+            {
+                isValid = true;
+            }
+            else
+                System.out.println("Wrong username or password, enter again");
+        }
     }
 }
