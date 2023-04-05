@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="topBar.css">
+    <link rel="stylesheet" type="text/css" href="homepageCSS.css">
 </head>
 <body>
     <h1 MAKE A WISH style="background-color: mediumpurple"></h1>
 
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#Discovery">Discovery</a>
+        <input type="text" placeholder="Search..">
+    </div>
+
     <a href ="/createList">
-        <button class="btn-create, btn" id="btn-create">Create a wishlist </button>
+        <button class=" btn wishlist-button" id="btn-create">Create a wishlist</button>
     </a>
-    <table>
+    <div class="sky-card">
         <thead>
         <tr>
             <th>wishlist_id</th>
             <th>wishlist_name</th>
             <th>item_name</th>
-            <th>action</th>
+            <th>item_description</th>
         </tr>
-        </thead>
         <tbody>
+        <!-- Loop through the wishlists and display their information -->
         <tr th:each="wishlist: ${wishlists}">
             <td th:text="${wishlist.wishlist_id}"/>
             <td th:text="${wishlist.wishlist_name}"/>
@@ -27,6 +35,6 @@
             <td th:text="${wishlist.item_description}"/>
         </tr>
         </tbody>
-    </table>
+    </div>
 </body>
 </html>
