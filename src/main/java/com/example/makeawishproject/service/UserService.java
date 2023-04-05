@@ -4,6 +4,9 @@ import com.example.makeawishproject.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 @Service
 public class UserService {
     @Autowired
@@ -13,9 +16,7 @@ public class UserService {
         userRepo.NewUser(u);
     }
 
-    public User validateLogin(String username,String user_password) {
-        return userRepo.valdiateLogin(username,user_password);
+    public Boolean validateLogin(String username, String user_password) {
+        return userRepo.validateLogin(username,user_password);
     }
-
-
 }

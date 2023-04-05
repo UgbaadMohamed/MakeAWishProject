@@ -1,6 +1,7 @@
 package com.example.makeawishproject.respository;
 import com.example.makeawishproject.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,13 +18,26 @@ public class UserRepo {
     }
 
     //TODO: validate the password is not done...
-
-    public User valdiateLogin(String username,String user_password) {
+  /*  public Boolean validateLogin(String username,String user_password) {
         String sql = "SELECT username, user_password FROM user WHERE username = ? AND user_password = ?";
         RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
         User u = template.queryForObject(sql, rowMapper,username,user_password);
-        return u;
+        if(u.equals(true)) {
+            return true;
+        }
+        return false;
+    }*/
+    public boolean validateLogin(String username, String user_password) {
+        String sql = "SELECT username, user_password FROM user WHERE username = ? AND user_password = ?";
+        RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+        try {
+            User u = template.queryForObject(sql, rowMapper, username, user_password);
+            return u != null;
+        } catch (EmptyResultDataAccessException e) {
+            return false;
+        }
     }
+
 }
 
 

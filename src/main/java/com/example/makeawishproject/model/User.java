@@ -68,18 +68,5 @@ public class User {
         this.user_password = user_password;
     }
 
-    //methode to check if login exsist
-    public void ValidateLogin (String username, String user_password) {
-        boolean isValid = false;
 
-        while (!isValid) {
-            //Enter username and username:
-            if (username.equals(this.username) && user_password.equals(this.user_password))
-            {
-                isValid = true;
-            }
-            else
-                System.out.println("Wrong username or password, enter again");
-        }
-    }
 }
