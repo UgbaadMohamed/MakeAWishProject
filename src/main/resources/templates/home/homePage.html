@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 MAKE A WISH style="background-color: mediumpurple"></h1>
+
+    <a href ="/create">
+        <button class="btn-create, btn" id="btn-create">Create a wishlist </button>
+    </a>
+    <table>
+        <thead>
+        <tr>
+            <th>wishlist_id</th>
+            <th>wishlist_name</th>
+            <th>item_name</th>
+            <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="wishlist: ${wishlists}">
+            <td th:text="${wishlist.id}"/>
+            <td th:text="${wishlist.wishlist_name}"/>
+            <td th:text="${wishlist.item_name}"/>
+            <td th:text="${wishlist.item_description}"/>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
