@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="CreateList.css">
 </head>
 <body>
 
-<h1>Create a new person </h1>
+<h1>Create a Wishlist </h1>
 <form action="/makeList" method="post">
-    <label>Enter name of WishList</label>
+    <div class="box">
+    <label>Enter wishlist:</label>
     <input type="text" name="wishlist_name">
 
-    <label>Enter the item you wish for</label>
+    <label>Enter wishlist item:</label>
     <input type="text" name="item_name">
 
-    <label>Write a description</label>
+    <label>Write a description:</label>
     <input type="text" name="item_description">
 
-    <input type="submit" value="Finalize wish" style="color:dodgerblue">
+    <input type="submit" value="Finalize wish">
+    </div>
 </form>
 </body>
 </html>
