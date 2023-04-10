@@ -8,9 +8,12 @@ public class UserModel {
     private String username;
     private String user_password;
 
+    private int wishlist_id;
+
     public UserModel() {
 
     }
+
     public UserModel(int user_id, String first_name, String last_name, String address, String username, String user_password) {
         this.user_id = user_id;
         this.first_name = first_name;
@@ -18,6 +21,11 @@ public class UserModel {
         this.address = address;
         this.username = username;
         this.user_password = user_password;
+    }
+
+
+    public void setWishlist_id(int wishlist_id) {
+        this.wishlist_id = wishlist_id;
     }
 
     public int getUser_id() {

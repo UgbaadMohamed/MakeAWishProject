@@ -1,0 +1,182 @@
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.topnav input[type=text] {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    border: none;
+    font-size: 17px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+.topnav input[type=text]:focus {
+    background-color: #fff;
+}
+
+.wishlist-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.sky-card {
+    width: 300px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.sky-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.wishlistname {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.add-item-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.add-item-button:hover {
+    background-color: #555;
+}
+
+.item-details {
+    padding: 10px;
+}
+
+.item-name {
+    font-weight: bold;
+    margin: 0;
+}
+
+.item-description {
+    margin: 0;
+}
+
+/* Style for the Create a wishlist button */
+.wishlist-button {
+    border-radius: 10px;
+    border: 1px solid lavenderblush;
+    background-color: #bfaaaf;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 40px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 90px;
+    margin-top: 30px;
+    margin-left: 550px;
+}
+/* Style for the Create a wishlist button on hover */
+.wishlist-button:hover {
+    background-color: #4e5ebd;
+}
+/* Style for the wishlist button text on hover */
+.wishlist-button:hover .wishlist-button-text {
+    transform: translateY(-5px);
+}
+
+/* Style for the wishlist button icon on hover */
+.wishlist-button:hover .wishlist-button-icon {
+    transform: rotate(45deg);
+}
+
+/* Style for the wishlist button text */
+.wishlist-button-text {
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+}
+
+/* Style for the wishlist button icon */
+.wishlist-button-icon {
+    transition: transform 0.3s ease-in-out;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+/* Style for box */
+.sky-card {
+    background-color: #88bde6;
+    background-image: linear-gradient(180deg, green 0%, #ffa1d2 50%, #ffb6d1 100%);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    height: 400px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.sky-card th {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.sky-card td {
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
