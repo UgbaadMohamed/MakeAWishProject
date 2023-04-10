@@ -4,9 +4,7 @@ import com.example.makeawishproject.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,13 +23,48 @@ public class HomeController {
     public String createList(){
         return "home/createList";
     }
-
-
     @PostMapping("/makeList")
     public String makeList(@ModelAttribute WishList wishList){
         wishListService.createWishList(wishList);
         return "redirect:/";
     }
+
+    @GetMapping("/addItem/{wishlistId}/{wishlistName}")
+    public String addItemForm(@PathVariable("wishlistId") Long wishlistId, @PathVariable("wishlistName") String wishlistName, Model model){
+        model.addAttribute("wishlistId", wishlistId);
+        model.addAttribute("wishlistName", wishlistName);
+        return "home/addItem";
+    }
+
+    @PostMapping("/addItemToWishlist/")
+    public String addItemToWishlist(@ModelAttribute("wishList") WishList wishList){
+        wishListService.updateAddItem(wishList.getWishlist_id(), wishList.getWishlist_name(), wishList.getItem_name(), wishList.getItem_description());
+        return "redirect:/"; // redirect to the home page
+    }
+
+
+    @GetMapping("/deleteWishlist/{id}")
+    public String deleteWishlist(@PathVariable("id")int id){
+        boolean deleted= wishListService.deletewishlist(id);
+        if (deleted) {
+            return "redirect:/";
+        }
+        else {
+            return "redirect:/";
+        }
+    }
+
+    @GetMapping("/deleteItem/{id}")
+    public String deleteItem(@PathVariable("id")int id){
+        boolean deleted= wishListService.deleteItem(id);
+        if (deleted) {
+            return "redirect:/";
+        }
+        else {
+            return "redirect:/";
+        }
+    }
+
 
 
 
