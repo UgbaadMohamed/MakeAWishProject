@@ -33,6 +33,13 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @GetMapping("/discoveryPage")
+    public String discoveryPage(Model model){
+        List<WishList> wishlist = wishListService.discovery();
+        model.addAttribute("lists", wishlist);
+        return "home/discoveryPage";
+    }
+
 
 
 }

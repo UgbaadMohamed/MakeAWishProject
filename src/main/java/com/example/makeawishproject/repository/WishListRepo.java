@@ -24,6 +24,11 @@ public class WishListRepo {
         String sql= "Insert into wishlist(wishlist_id, wishlist_name, item_name, item_description) VALUES (?, ?, ?, ?)";
         template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getItem_name(), u.getItem_description());
     }
+    public List<WishList>  discoveryPage(){
+        String sql = "SELECT * FROM wishlist";
+        RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
+        return template.query(sql, rowMapper);
+    }
 
 
 

@@ -21,4 +21,8 @@ public class WishListService {
     public void createWishList(WishList w){
         wishListRepo.createWishList(w);
     }
+
+    public List<WishList> discovery(){
+        return wishListRepo.discoveryPage();
+    }
 }
