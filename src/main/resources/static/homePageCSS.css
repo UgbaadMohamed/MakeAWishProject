@@ -1,0 +1,127 @@
+.wishlist-container {
+                        /* Set the display to flex and wrap items to the next line */
+    display: flex;
+    flex-wrap: wrap;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Add margin to the top */
+    margin-top: 80px;
+}
+
+#btn-deleteWishlist{
+    background-color: red;
+}
+                        /* Style for each wishlist item card */
+.sky-card {
+    /* Set width and height */
+    width: 300px;
+    height: 200px;
+    /* Add margin to create some space between cards */
+    margin: 20px;
+    /* Add rounded corners to the card */
+    border-radius: 5px;
+    /* Add a box shadow for a 3D effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* Add a transition effect when hovering over the card */
+    transition: 0.3s;
+}
+
+/* Form and colour */
+.sky-card {
+    background-color: #88bde6;
+    background-image: linear-gradient(180deg, green 0%, #ffa1d2 50%, #ffb6d1 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Add a stronger box shadow when hovering over the card */
+.sky-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+                    /* Style for the wishlist item name and "Add Item" button */
+.wishlistname {
+    /* Align items vertically */
+    display: flex;
+    align-items: center;
+    /* Create some space between the name and button */
+    justify-content: space-between;
+    /* Add padding to the top and bottom */
+    padding: 10px;
+}
+                            /* Style for the "Add Item" button */
+.add-item-button {
+    /* Set the background color to dark gray */
+    background-color: #333;
+    /* Set the text color to white */
+    color: #fff;
+    /* Remove the default border */
+    border: none;
+    /* Add rounded corners to create a circle */
+    border-radius: 50%;
+    /* Add padding to make the button bigger */
+    padding: 10px 12px;
+    /* Center the text horizontally */
+    text-align: center;
+    /* Remove underlines from the text */
+    text-decoration: none;
+    /* Set the font size */
+    font-size: 20px;
+    /* Change the cursor to a pointer when hovering over the button */
+    cursor: pointer;
+}
+
+                    /* Add a darker background color when hovering over the "Add Item" button */
+.add-item-button:hover {
+    background-color: #555;
+}
+
+/* Style for the item details */
+.item-details {
+    /* Add padding to create some space */
+    padding: 10px;
+}
+
+/* Style for the item name */
+.item-name {
+    /* Make the text bold */
+    font-weight: bold;
+    /* Remove margin */
+    margin: 0;
+}
+
+/* Style for the item description */
+.item-description {
+    /* Remove margin */
+    margin: 0;
+}
+
+/* Style for the "Create a wishlist" button */
+.wishlist-button {
+    /* Add rounded corners */
+    border-radius: 10px;
+    /* Add a border */
+    border: 1px solid lavenderblush;
+    /* Set the background color */
+    background-color: #bfaaaf;
+    /* Set the text color to white */
+    color: #ffffff;
+    /* Set the font size */
+    font-size: 12px;
+    /* Make the text bold */
+    font-weight: bold;
+    /* Add padding */
+    padding: 12px 40px;
+    /* Add some space to the top and bottom */
+    margin-bottom: 90px;
+    margin-top: 30px;
+    /* Add some letter spacing */
+    letter-spacing: 1px;
+    /* Capitalize the text */
+    text-transform: uppercase;
+}
+
+
