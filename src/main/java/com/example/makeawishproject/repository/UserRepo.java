@@ -1,4 +1,4 @@
-package com.example.makeawishproject.respository;
+package com.example.makeawishproject.repository;
 import com.example.makeawishproject.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;

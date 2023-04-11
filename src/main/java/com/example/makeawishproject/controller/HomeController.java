@@ -1,5 +1,7 @@
 package com.example.makeawishproject.controller;
+import com.example.makeawishproject.model.User;
 import com.example.makeawishproject.model.WishList;
+import com.example.makeawishproject.service.UserService;
 import com.example.makeawishproject.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,37 @@ import java.util.List;
 public class HomeController {
     @Autowired
     WishListService wishListService;
+    @Autowired
+    UserService userService;
+
+    @GetMapping("/")
+    public String frontPage () {
+        return "home/frontPage";
+    }
+
+    @GetMapping("/registration")
+    public String registrationSection() {
+        return "home/registration";
+    }
+
+    @PostMapping("/NewRegistration")
+    public String NewRegistration(@ModelAttribute User user) {
+        userService.createNewUser(user);
+        return "redirect:/";
+    }
+
+    @PostMapping ("/login/{username}/{user_password}")
+    public String login(@RequestParam ("username") String username, @RequestParam("user_password")
+    String user_password, Model model) {
+        model.addAttribute("user", userService.validateLogin(username, user_password));
+
+        if(userService.validateLogin(username, user_password)) {
+            return "home/test";
+        }
+        else {
+            return "home/wrongLogin";
+        }
+    }
 
     @GetMapping("/")
     public String homePage(Model model){
