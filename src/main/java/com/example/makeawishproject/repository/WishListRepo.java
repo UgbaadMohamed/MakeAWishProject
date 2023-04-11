@@ -20,15 +20,10 @@ public class WishListRepo {
         return template.query(sql, rowMapper);
     }
 
+
     public void createWishList(WishList u){
-        String sql= "Insert into wishlist(wishlist_id, wishlist_name, item_name, item_description) VALUES (?, ?, ?, ?)";
-        template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getItem_name(), u.getItem_description());
-    }
-
-
-    public void updateAddItem(int wishlistId, String wishlistName, String itemName, String itemDescription) {
-        String sql = "INSERT INTO wishlist(wishlist_id, wishlist_name, item_name, item_description) VALUES (?, ?, ?, ?)";
-        template.update(sql, wishlistId, wishlistName, itemName, itemDescription);
+        String sql= "Insert into wishlist(wishlist_id, wishlist_name,wishlist_description) VALUES (?, ?, ?)";
+        template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getWishlist_description());
     }
 
 
@@ -37,10 +32,7 @@ public class WishListRepo {
         return template.update(sql, id) > 0;
     }
 
-    public Boolean deleteItem(int id){
-        String sql = "DELETE FROM wishlist WHERE item_name=? AND item_description=?";
-        return template.update(sql, id) > 0;
-    }
+
 
 
 }

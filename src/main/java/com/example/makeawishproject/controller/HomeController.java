@@ -1,7 +1,10 @@
 package com.example.makeawishproject.controller;
+import com.example.makeawishproject.model.Item;
 import com.example.makeawishproject.model.WishList;
+import com.example.makeawishproject.service.ItemService;
 import com.example.makeawishproject.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +15,23 @@ import java.util.List;
 public class HomeController {
     @Autowired
     WishListService wishListService;
+    @Autowired
+    ItemService itemService;
 
     @GetMapping("/")
-    public String homePage(Model model){
+    public String homePageWishList(Model model){
         List<WishList> wishList = wishListService.fetchWishList();
         model.addAttribute("wishlists",wishList);
         return "home/homePage";
     }
+    @GetMapping("//")
+    public String homePageAddItem(Model model){
+        List<Item> item = itemService.fetchItems();
+        model.addAttribute("items",item );
+        return "home/homePage";
+    }
+
+
     @GetMapping("/createList")
     public String createList(){
         return "home/createList";
@@ -29,18 +42,35 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @GetMapping("/addItem/{wishlistId}/{wishlistName}")
-    public String addItemForm(@PathVariable("wishlistId") Long wishlistId, @PathVariable("wishlistName") String wishlistName, Model model){
-        model.addAttribute("wishlistId", wishlistId);
-        model.addAttribute("wishlistName", wishlistName);
+
+
+    /*@GetMapping("/addItem/{wishlistId}/{item_id}")
+    public String addItemForm(@PathVariable("wishlistId") int wishlistId, @PathVariable("item_id") int item_id, Model model){
+        model.addAttribute("wishlist", wishlistId);
+        model.addAttribute("item", item_id);
+        return "home/addItem";
+    }*/
+
+    @GetMapping("/addItem")
+    public String addItem()
+    {
         return "home/addItem";
     }
 
     @PostMapping("/addItemToWishlist")
-    public String addItemToWishlist(@ModelAttribute("wishList") WishList wishList){
-        wishListService.updateAddItem(wishList.getWishlist_id(), wishList.getWishlist_name(), wishList.getItem_name(), wishList.getItem_description());
+    public String addItemToWishlist(@ModelAttribute Item i){
+        //itemService.addItem(i.getWishlist_id(), i.getItem_id(), i.getItem_name(), i.getItem_description());
+        itemService.addItem(i);
         return "redirect:/"; // redirect to the home page
     }
+
+
+
+
+
+
+
+
 
     @GetMapping("/deleteWishlist/{id}")
     public String deleteWishlist(@PathVariable("id")int id){
@@ -54,7 +84,7 @@ public class HomeController {
     }
     @GetMapping("/deleteItem/{id}")
     public String deleteItem(@PathVariable("id")int id){
-        boolean deleted= wishListService.deleteItem(id);
+        boolean deleted= itemService.deleteItem(id);
         if (deleted) {
             return "redirect:/";
         }

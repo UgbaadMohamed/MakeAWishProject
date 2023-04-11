@@ -72,6 +72,8 @@
     font-size: 20px;
     /* Change the cursor to a pointer when hovering over the button */
     cursor: pointer;
+    z-index: 1;
+    position: absolute;
 }
 
                     /* Add a darker background color when hovering over the "Add Item" button */
