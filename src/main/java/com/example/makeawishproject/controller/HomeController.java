@@ -19,7 +19,7 @@ public class HomeController {
     public String homePage(Model model){
         List<WishList> wishList = wishListService.fetchWishList();
         model.addAttribute("wishlists",wishList);
-        return "home/homePage";
+        return "home/home";
     }
     @GetMapping("/createList")
     public String createList(){

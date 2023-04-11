@@ -2,24 +2,23 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create a Wishlist</title>
     <link rel="stylesheet" type="text/css" href="CreateList.css">
 </head>
-<body>
+<body class="page-body">
 
-<h1>Create a Wishlist </h1>
-<form action="/makeList" method="post">
-    <div class="box">
-    <label>Enter wishlist:</label>
-    <input type="text" name="wishlist_name">
+<h1 class="page-title">Create a Wishlist</h1>
+<form class="wishlist-form" action="/makeList" method="post">
+    <div class="wishlist-box">
+        <label class="wishlist-label">Enter wishlist name:</label>
+        <input class="wishlist-input" type="text" name="wishlist_name">
 
-    <label>Enter wishlist item:</label>
-    <input type="text" name="item_name">
+        <label class="wishlist-label">Enter wishlist description:</label>
+        <input class="wishlist-input" type="text" name="item_name">
 
-    <label>Write a description:</label>
-    <input type="text" name="item_description">
 
-    <input type="submit" value="Finalize wish">
+
+        <input type="submit" value="Finalize wish">
     </div>
 </form>
 </body>

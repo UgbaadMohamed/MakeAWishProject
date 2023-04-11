@@ -1,0 +1,135 @@
+
+.foto {
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    margin-top: 0px;
+    background-image: url("picture.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+}
+
+#menuHeader {
+    font-family: ".SF NS Display", sans-serif;
+    position: absolute;
+    font-weight: bold;
+    background: white;
+    color: #d4c3fa;
+    padding: 30px;
+    font-size: 40px;
+}
+body {
+    font-family: Lato, sans-serif;
+    line-height: 0.5;
+    background: white;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px ;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+}
+nav a {
+    color: #4f00e1;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: initial;
+    padding: 20px;
+}
+
+#positionForlogout{
+    position: absolute;
+    top: 45px;
+    right: 45px;
+}
+
+#home-botton {
+    background-color: #ffffff;
+    padding: 19px 45px;
+    border-radius: 0;
+    z-index: 1;
+    position: absolute;
+    top: -15px;
+    text-decoration: none;
+    left: 500px;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: sans-serif;
+}
+
+#discovery-botton {
+    background-color: #ffffff;
+    padding: 19px 40px;
+    border-radius: 0;
+    z-index: 1;
+    position: absolute;
+    top: 25px;
+    text-decoration: none;
+    left: 700px;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: sans-serif;
+}
+
+#home-botton:hover {
+    background-color: #bea4ea;
+}
+
+#discovery-botton:hover {
+    background-color: #bea4ea;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 18px 20px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: mediumpurple;
+    color: black;
+}
+
+#search-input {
+    position: absolute;
+    top: 38px;
+    right: 120px;
+}
+
+.discoverylist {
+    position: absolute;
+    z-index: 1;
+    top: 140px;
+    right: 3px;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 40%;
+
+
+}
+th{
+    background-color: lightblue;
+}
+td,th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 4px;
+}
+
