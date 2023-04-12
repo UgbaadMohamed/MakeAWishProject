@@ -30,7 +30,10 @@ public class WishListRepo {
     }
 
     public WishList findWishlist(int wishlist_id) {
-        String sql = "SELECT * FROM wishlist WHERE wishlist_id = ?";
+        String sql = "SELECT w.wishlist_name, i.* " +
+                "FROM wishlist w " +
+                "JOIN item i ON w.item_id = i.item_id " +
+                "WHERE w.wishlist_id = ?";
         RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
         try {
             WishList wishList = template.queryForObject(sql, rowMapper, wishlist_id);

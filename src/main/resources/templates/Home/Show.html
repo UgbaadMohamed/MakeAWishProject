@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/.css">
+    <script src="https://kit.fontawesome.com/d17da6709b.js"> </script>
+</head>
+<body>
+</div>
+<div th:if="${wishlist != null}">
+    <h1>Wishlist Info</h1>
+    <p>Wishlist Name: <span th:text="${wishlist.wishlist_name}"></span></p>
+    <p>Item Name: <span th:text="${wishlist.item_name}"></span></p>
+    <p>Item Description:<span th:text="${wishlist.item_description}"></span></p>
+</div>
+
+<div th:if="${wishlist == null}">
+    <p>No wishlist found with the given ID.</p>
+</div>
+</body>
+</html>

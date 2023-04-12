@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="homeC.css">
+    <link rel="stylesheet" type="text/css" href="topBar.css">
     <script src="https://kit.fontawesome.com/d17da6709b.js"> </script>
 </head>
 <body>
 <div id="menuHeader">
     Make a wish
 </div>
+
 <a class="active" href="#home" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
 <a href="#Discovery" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
 <div id="search-input">
-    <form action="/viewSearch/{wishlist_id}" method="GET">
-    <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
+    <input type="text" placeholder="search on you friends wishlist code.." name="search">
     <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
-    </form>
 </div>
 <nav>
     <ul>
@@ -30,16 +29,5 @@
 </div>
 <div class="foto">
 </div>
-<div th:if="${wishlist != null}">
-    <h1>Wishlist Info</h1>
-    <p>Wishlist Name: <span th:text="${wishlist.wishlist_name}"></span></p>
-    <p>Item Name: <span th:text="${wishlist.item_name}"></span></p>
-    <p>Item Description:<span th:text="${wishlist.item_description}"></span></p>
-</div>
-
-<div th:if="${wishlist == null}">
-    <p>No wishlist found with the given ID.</p>
-</div>
 </body>
 </html>
-

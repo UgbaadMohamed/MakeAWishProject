@@ -9,7 +9,8 @@ import java.util.List;
 @Service
 public class WishListService {
 @Autowired
-    WishListRepo wishListRepo;
+WishListRepo wishListRepo;
+
 
     public List<WishList> fetchWishList(){
         return wishListRepo.fetchWishList();
