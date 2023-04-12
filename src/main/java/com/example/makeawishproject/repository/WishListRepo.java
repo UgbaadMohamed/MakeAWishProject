@@ -29,18 +29,19 @@ public class WishListRepo {
         return template.queryForObject(sql, Integer.class, wishlistId) != null;
     }
 
-    public WishList findWishlist(int wishlist_id) {
-        String sql = "SELECT w.wishlist_name, i.* " +
-                "FROM wishlist w " +
-                "JOIN item i ON w.item_id = i.item_id " +
+    public List <WishList> findWishlist(int wishlist_id) {
+        String sql = "SELECT w.wishlist_name, i.item_name, i.item_description, w.wishlist_id\n" +
+                "FROM wishlist w \n" +
+                "JOIN item i ON w.wishlist_id = i.wishlist_id \n" +
                 "WHERE w.wishlist_id = ?";
         RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
-        try {
+       return template.query(sql, rowMapper, wishlist_id);
+       /* try {
             WishList wishList = template.queryForObject(sql, rowMapper, wishlist_id);
             return wishList;
         } catch (EmptyResultDataAccessException e) {
             return null;
-        }
+        }*/
     }
 
 

@@ -1,12 +1,14 @@
 package com.example.makeawishproject.controller;
 import com.example.makeawishproject.Service.UserService;
-import com.example.makeawishproject.Service.WishListService;
+import com.example.makeawishproject.model.WishList;
+import com.example.makeawishproject.service.WishListService;
 import com.example.makeawishproject.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @Controller
@@ -39,10 +41,17 @@ public class HomeController {
         userService.NewUser(userModel);
         return "redirect:/";
     }
+
+
     @GetMapping("/viewSearch/{wishlist_id}")
     public String viewSearch(@RequestParam("wishlist_id") int wishlist_id,Model model) {
-        model.addAttribute("wishlist",wishListService.findWishlist(wishlist_id));
+        List<WishList> wishlists = wishListService.findWishlist(wishlist_id);
+        model.addAttribute("wishlists",wishlists);
         return "home/Show";
     }
+
+
+
+
 
 }

@@ -9,15 +9,13 @@
 </head>
 <body>
 </div>
-<div th:if="${wishlist != null}">
     <h1>Wishlist Info</h1>
-    <p>Wishlist Name: <span th:text="${wishlist.wishlist_name}"></span></p>
-    <p>Item Name: <span th:text="${wishlist.item_name}"></span></p>
-    <p>Item Description:<span th:text="${wishlist.item_description}"></span></p>
-</div>
+    <tr th:each="wishlist: ${wishlists}">
+        <p>Wishlist Name: <td th:text="${wishlist.wishlist_name}"></td></p>
+        <p>Item Name: <td th:text="${wishlist.item_name}"></td></p>
+        <p>Item Description: <td th:text="${wishlist.item_description}"></td></p>
+    </tr>
 
-<div th:if="${wishlist == null}">
-    <p>No wishlist found with the given ID.</p>
 </div>
 </body>
 </html>
