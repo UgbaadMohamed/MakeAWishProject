@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class WishListService {
 @Autowired
-WishListRepo wishListRepo;
+    WishListRepo wishListRepo;
 
 
     public List<WishList> fetchWishList(){
@@ -18,8 +18,5 @@ WishListRepo wishListRepo;
 
     public void createWishList(WishList w){
         wishListRepo.createWishList(w);
-    }
-    public WishList findWishlist(int wishlist_id){
-        return wishListRepo.findWishlist(wishlist_id);
     }
 }
