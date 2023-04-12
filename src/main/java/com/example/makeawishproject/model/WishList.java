@@ -6,6 +6,8 @@ public class WishList {
     private int wishlist_id;
     private String wishlist_description;
 
+    private int count;
+
 
     public WishList(){
     }
@@ -14,7 +16,14 @@ public class WishList {
         this.wishlist_id = wishlist_id;
         this.wishlist_name = wishlist_name;
         this.wishlist_description = wishlist_description;
+    }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 
     public int getWishlist_id() {

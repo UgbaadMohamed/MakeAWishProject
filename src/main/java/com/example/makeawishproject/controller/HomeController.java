@@ -19,15 +19,15 @@ public class HomeController {
     ItemService itemService;
 
     @GetMapping("/")
-    public String homePageWishList(Model model){
-        List<WishList> wishList = wishListService.fetchWishList();
-        model.addAttribute("wishlists",wishList);
+    public String homePageWishList(Model model) {
+        List<WishList> wishLists = wishListService.fetchWishList();
+        model.addAttribute("wishlists", wishLists);
         return "home/homePage";
     }
     @GetMapping("//")
     public String homePageAddItem(Model model){
-        List<Item> item = itemService.fetchItems();
-        model.addAttribute("items",item );
+        List<Item> items = itemService.fetchItems();
+        model.addAttribute("items",items );
         return "home/homePage";
     }
 
@@ -66,8 +66,12 @@ public class HomeController {
 
 
 
-
-
+    @GetMapping("/viewWishList/{wishlist_id}")
+    public String viewWishList(@PathVariable("wishlist_id") int wishlist_id,Model model) {
+        List<Item> items =itemService.viewWishlist(wishlist_id);
+        model.addAttribute("items", items);
+        return "home/viewWishList";
+    }
 
 
 

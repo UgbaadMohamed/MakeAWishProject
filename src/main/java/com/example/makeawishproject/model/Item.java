@@ -5,6 +5,9 @@ public class Item {
     private int item_id;
     private String item_description;
     private int wishlist_id;
+    public Item() {
+
+    }
 
     public Item(String item_name, int item_id, String item_description, int wishlist_id) {
         this.item_name = item_name;
@@ -42,5 +45,15 @@ public class Item {
 
     public void setItem_id(int item_id) {
         this.item_id = item_id;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "item_name='" + item_name + '\'' +
+                ", item_id=" + item_id +
+                ", item_description='" + item_description + '\'' +
+                ", wishlist_id=" + wishlist_id +
+                '}';
     }
 }

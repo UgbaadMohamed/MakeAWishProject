@@ -25,22 +25,17 @@
         <div class="wishlistname">
             <p th:text="${wishlist.wishlist_name}"></p>
             <p th:text="${wishlist.wishlist_description}"></p>
+            <p th:text="${wishlist.count}"></p>
         </div>
 
         <a href="/addItem">
             <button class="add-item-button">Add Item</button>
         </a>
+        </div>
 
-
-            <div class="wishlist-item">
-                <div th:each="item:${items}">
-                <p class="item-id" th:text="${item.item_id}"></p>
-                <p class="item-name" th:text="${item.item_name}"></p>
-                <p class="item-description" th:text="${item.item_description}"></p>
-                <p class="wishlist-id" th:text="'Wishlist ID: ' +${item.wishlist_id}"></p>
-                </div>
-            </div>
-
+        <a th:href="@{'/viewWishList/'+${wishlist.wishlist_id}}">
+            <button class="view wishlist"> view</button>
+        </a>
 
         <a th:href="@{'/deleteWishlist/'+${wishlist.wishlist_id}}">
             <button class="btn-deleteWishlist" id="btn-deleteWishlist">X</button>

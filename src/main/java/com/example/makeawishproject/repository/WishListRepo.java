@@ -17,7 +17,14 @@ public class WishListRepo {
     public List<WishList> fetchWishList(){
         String sql = "SELECT * FROM wishlist";
         RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
-        return template.query(sql, rowMapper);
+        List<WishList> wishLists = template.query(sql, rowMapper);
+        for (WishList w:wishLists) {
+            int id = w.getWishlist_id();
+            String sql2 = "SELECT COUNT(item_id) FROM item WHERE wishlist_id = ?";
+            int count = template.queryForObject(sql2, Integer.class,id);
+            w.setCount(count);
+        }
+        return wishLists;
     }
 
 
@@ -25,6 +32,9 @@ public class WishListRepo {
         String sql= "Insert into wishlist(wishlist_id, wishlist_name,wishlist_description) VALUES (?, ?, ?)";
         template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getWishlist_description());
     }
+
+
+
 
 
     public Boolean deletewishlist(int id){

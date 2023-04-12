@@ -24,7 +24,15 @@ public class ItemService {
         itemRepo.addItem(i);
     }
 
+
+    public List<Item> viewWishlist(int wishlist_id){
+        return itemRepo.viewWishlist(wishlist_id);
+    }
+
+
     public Boolean deleteItem(int id){
         return itemRepo.deleteItem(id);
     }
+
+
 }
