@@ -22,6 +22,8 @@ public class HomeController {
     @Autowired
     UserService userService;
 
+    private int user_id;
+
     @GetMapping("/")
     public String frontPage () {
         return "home/frontPage";
@@ -33,8 +35,10 @@ public class HomeController {
     }
 
     @PostMapping("/NewRegistration")
-    public String NewRegistration(@ModelAttribute User user) {
+    public String NewRegistration(@ModelAttribute User user, @RequestParam("username") String username,
+                                  @RequestParam("user_password") String user_password){
         userService.createNewUser(user);
+        user_id = userService.getUser_id(username, user_password);
         return "home/homePage";
     }
 
@@ -44,6 +48,7 @@ public class HomeController {
         model.addAttribute("user", userService.validateLogin(username, user_password));
 
         if(userService.validateLogin(username, user_password)) {
+            user_id = userService.getUser_id(username, user_password);
             return "home/homePage";
         }
         else {
@@ -54,7 +59,7 @@ public class HomeController {
     @GetMapping("/homePage")
     public String homePage(Model model){
         List<WishList> wishList = wishListService.fetchWishList();
-        model.addAttribute("wishlists",wishList);
+        model.addAttribute("wishlists", wishList);
         return "home/homePage";
     }
     @GetMapping("/createList")
@@ -64,12 +69,12 @@ public class HomeController {
 
     @PostMapping("/makeList")
     public String makeList(@ModelAttribute WishList wishList) {
-        wishListService.createWishList(wishList);
+        wishListService.createWishList(wishList, user_id);
         return "home/homePage";
     }
 
     @GetMapping("/discoveryPage")
-    public String discoveryPage(Model model){
+    public String discoveryPage(Model model) {
         List<WishList> wishlist = wishListService.discovery();
         model.addAttribute("lists", wishlist);
         return "home/discoveryTest";
@@ -81,5 +86,4 @@ public class HomeController {
         model.addAttribute("wishlists", wishlists);
         return "home/show";
     }
-
 }

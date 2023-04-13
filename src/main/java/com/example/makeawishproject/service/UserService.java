@@ -18,7 +18,11 @@ import java.sql.SQLException;
         }
 
         public Boolean validateLogin(String username, String user_password) {
-            return userRepo.validateLogin(username,user_password);
+            return userRepo.validateLogin(username, user_password);
+        }
+
+        public int getUser_id(String username, String user_password){
+            return userRepo.getUser_id(username, user_password);
         }
 
 

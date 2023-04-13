@@ -16,7 +16,7 @@
 <a href="discoveryPage" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
 <div id="search-input">
     <form action="/viewSearch" method="GET">
-        <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
+        <input type="text" placeholder="Search on your friend's wishlist..." name="wishlist_id" required>
         <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
     </form>
 </div>
@@ -32,7 +32,7 @@
 <div class="foto">
 
 </div>
-<div class="wishlist-box">
+<div class="wishlist-box" th:if="${not #lists.isEmpty(wishlists)}">
     <div class="wishlist-info">
         <h1>
             <span class="wishlist-name" th:text="${wishlists[0].wishlist_name}"></span>
@@ -46,11 +46,10 @@
             <th>Item Description</th>
             <th>Reserved</th>
 
-
         </tr>
         </thead>
         <tbody>
-        <tr th:each="wishlist: ${wishlists}">
+        <tr th:if="${wishlist != null}" th:each="wishlist: ${wishlists}">
             <td><span class="item-name" th:text="${wishlist.item_name}"></span></td>
             <td><span class="item-description" th:text="${wishlist.item_description}"></span></td>
             <td>

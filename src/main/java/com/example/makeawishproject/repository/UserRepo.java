@@ -29,4 +29,14 @@ public class UserRepo {
             return false;
         }
     }
+
+    public int getUser_id(String username, String user_password)
+    {
+        String sql = "SELECT user_id FROM user WHERE username = ? AND user_password = ?";
+        RowMapper<User> rowMapper = new BeanPropertyRowMapper<>(User.class);
+
+        User u = template.queryForObject(sql, rowMapper, username, user_password);
+        assert u != null;
+        return u.getUser_id();
+    }
 }

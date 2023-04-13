@@ -18,8 +18,8 @@ public class WishListService {
         return wishListRepo.fetchWishList();
     }
 
-    public void createWishList(WishList w){
-        wishListRepo.createWishList(w);
+    public void createWishList(WishList w, int user_id){
+        wishListRepo.createWishList(w, user_id);
     }
 
     public List<WishList> discovery(){

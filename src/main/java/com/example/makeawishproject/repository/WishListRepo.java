@@ -20,9 +20,10 @@ public class WishListRepo {
         return template.query(sql, rowMapper);
     }
 
-    public void createWishList(WishList w) {
-        String sql = "INSERT INTO wishlist (wishlist_id, wishlist_name, wishlist_description) VALUES (?, ?, ?)";
-        template.update(sql, w.getWishlist_id(), w.getWishlist_name(), w.getWishlist_description());
+    public void createWishList(WishList w, int user_id) {
+        String sql = "INSERT INTO wishlist (wishlist_id, wishlist_name, wishlist_description, user_id) VALUES (?, ?," +
+                " ?, ?)";
+        template.update(sql, w.getWishlist_id(), w.getWishlist_name(), w.getWishlist_description(), user_id);
     }
     public List<WishList> discoveryPage(){
         String sql = "SELECT * FROM wishlist";
@@ -32,9 +33,9 @@ public class WishListRepo {
 
     public List <WishList> findWishlist(int wishlist_id) {
         String sql = "SELECT w.wishlist_name, i.item_name, i.item_description, w.wishlist_id\n" +
-                "FROM wishlist w \n" +
-                "JOIN item i ON w.wishlist_id = i.wishlist_id \n" +
-                "WHERE w.wishlist_id = ?";
+                "FROM wishlist w\n" +
+                "LEFT JOIN item i ON w.wishlist_id = i.wishlist_id\n" +
+                "WHERE w.wishlist_id = ?\n";
         RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
         return template.query(sql, rowMapper, wishlist_id);
     }
