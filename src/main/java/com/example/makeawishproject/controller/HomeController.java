@@ -3,6 +3,7 @@ import com.example.makeawishproject.model.User;
 import com.example.makeawishproject.model.WishList;
 import com.example.makeawishproject.service.UserService;
 import com.example.makeawishproject.service.WishListService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,13 +62,11 @@ public class HomeController {
         return "home/createList";
     }
 
-
     @PostMapping("/makeList")
-    public String makeList(@ModelAttribute WishList wishList){
+    public String makeList(@ModelAttribute WishList wishList) {
         wishListService.createWishList(wishList);
-        return "redirect:/";
+        return "home/homePage";
     }
-
 
     @GetMapping("/discoveryPage")
     public String discoveryPage(Model model){
@@ -76,6 +75,11 @@ public class HomeController {
         return "home/discoveryTest";
     }
 
-
+    @GetMapping("/viewSearch")
+    public String viewSearch(@RequestParam("wishlist_id") int wishlist_id, Model model) {
+        List<WishList> wishlists = wishListService.findWishlist(wishlist_id);
+        model.addAttribute("wishlists", wishlists);
+        return "home/show";
+    }
 
 }

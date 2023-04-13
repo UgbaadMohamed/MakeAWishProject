@@ -14,8 +14,10 @@
 <a class="active" href="#home" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
 <a href="#Discovery" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
 <div id="search-input">
-  <input type="text" placeholder="Search on your friend's wishlist code..." name="search">
-  <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
+  <form action="/viewSearch/{wishlist_id}" method="GET">
+    <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
+    <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
+  </form>
 </div>
 <nav>
   <ul>
@@ -27,6 +29,19 @@
   </a>
 </div>
 <div class="foto">
+  <div th:if="${wishlists != null}">
+    <h1>Wishlist Info</h1>
+    <div th:each="wishlist : ${wishlists}">
+      <p>Wishlist Name: <span th:text="${wishlist.wishlist_name}"></span></p>
+      <p>Item Name: <span th:text="${wishlist.item_name}"></span></p>
+      <p>Item Description: <span th:text="${wishlist.item_description}"></span></p>
+    </div>
+    <div th:if="${wishlists == null}">
+      <p>No wishlist found with the given ID.</p>
+    </div>
+  </div>
+
+
 </div>
 </body>
 </html>

@@ -20,32 +20,25 @@ public class WishListRepo {
         return template.query(sql, rowMapper);
     }
 
-    public void createWishList(WishList u){
-        String sql= "Insert into wishlist(wishlist_id, wishlist_name, item_name, item_description) VALUES (?, ?, ?, ?)";
-        template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getItem_name(), u.getItem_description());
+    public void createWishList(WishList w) {
+        String sql = "INSERT INTO wishlist (wishlist_id, wishlist_name, wishlist_description) VALUES (?, ?, ?)";
+        template.update(sql, w.getWishlist_id(), w.getWishlist_name(), w.getWishlist_description());
     }
-    public List<WishList>  discoveryPage(){
+    public List<WishList> discoveryPage(){
         String sql = "SELECT * FROM wishlist";
         RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
         return template.query(sql, rowMapper);
     }
 
-
-    public void updateAddItem(int wishlistId, String wishlistName, String itemName, String itemDescription) {
-        String sql = "INSERT INTO wishlist(wishlist_id, wishlist_name, item_name, item_description) VALUES (?, ?, ?, ?)";
-        template.update(sql, wishlistId, wishlistName, itemName, itemDescription);
+    public List <WishList> findWishlist(int wishlist_id) {
+        String sql = "SELECT w.wishlist_name, i.item_name, i.item_description, w.wishlist_id\n" +
+                "FROM wishlist w \n" +
+                "JOIN item i ON w.wishlist_id = i.wishlist_id \n" +
+                "WHERE w.wishlist_id = ?";
+        RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
+        return template.query(sql, rowMapper, wishlist_id);
     }
 
-
-    public Boolean deletewishlist(int id){
-        String sql = "DELETE FROM wishlist WHERE wishlist_id=?";
-        return template.update(sql, id) > 0;
-    }
-
-    public Boolean deleteItem(int id){
-        String sql = "DELETE FROM wishlist WHERE item_name=? AND item_description=?";
-        return template.update(sql, id) > 0;
-    }
 
 
 }

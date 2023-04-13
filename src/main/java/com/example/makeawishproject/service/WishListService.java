@@ -25,4 +25,8 @@ public class WishListService {
     public List<WishList> discovery(){
         return wishListRepo.discoveryPage();
     }
+
+    public List<WishList> findWishlist (int wishlist_id) {
+        return wishListRepo.findWishlist(wishlist_id);
+    }
 }
