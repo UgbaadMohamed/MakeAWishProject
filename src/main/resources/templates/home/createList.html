@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="menuHeader">
+    Make A Wish
+</div>
+
+<a href="homePage" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
+<a href="discoveryPage" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
+<div id="search-input">
+    <input type="text" placeholder="Search on your friend's wishlist code..." name="search">
+    <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
+</div>
+<nav>
+    <ul>
+    </ul>
+</nav>
+<div id="positionForlogout">
+    <a href="registration.html" class="logout-button">
+        <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #a86cd0;"></i>
+    </a>
+</div>
+<div class="foto">
+</div>
+</body>
+</html>
+<body class="page-body">
+
+<h1 class="page-title">Create a Wishlist</h1>
+<form class="wishlist-form" action="/makeList" method="post">
+    <div class="wishlist-box">
+        <label class="wishlist-label">Enter wishlist name:</label>
+        <input class="wishlist-input" type="text" name="wishlist_name">
+
+        <label class="wishlist-label">Enter wishlist description:</label>
+        <input class="wishlist-input" type="text" name="item_name">
+
+    <label>Write a description</label>
+    <input type="text" name="item_description">
+
+
+        <input type="submit" value="Save wishlist">
+    </div>
+</form>
+</body>
+</html>
