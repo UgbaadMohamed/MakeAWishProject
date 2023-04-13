@@ -31,5 +31,21 @@ public class WishListRepo {
     }
 
 
+    public void updateAddItem(int wishlistId, String wishlistName, String itemName, String itemDescription) {
+        String sql = "INSERT INTO wishlist(wishlist_id, wishlist_name, item_name, item_description) VALUES (?, ?, ?, ?)";
+        template.update(sql, wishlistId, wishlistName, itemName, itemDescription);
+    }
+
+
+    public Boolean deletewishlist(int id){
+        String sql = "DELETE FROM wishlist WHERE wishlist_id=?";
+        return template.update(sql, id) > 0;
+    }
+
+    public Boolean deleteItem(int id){
+        String sql = "DELETE FROM wishlist WHERE item_name=? AND item_description=?";
+        return template.update(sql, id) > 0;
+    }
+
 
 }
