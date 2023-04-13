@@ -1,6 +1,5 @@
-package com.example.makeawishproject.service;
-
-
+package com.example.makeawishproject.Service;
+import com.example.makeawishproject.model.UserModel;
 import com.example.makeawishproject.model.WishList;
 import com.example.makeawishproject.repository.WishListRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,7 @@ public class WishListService {
     public List<WishList> findWishlist (int wishlist_id) {
        return wishListRepo.findWishlist(wishlist_id);
     }
+
 
 
 
