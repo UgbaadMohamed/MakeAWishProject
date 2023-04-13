@@ -7,12 +7,13 @@
     margin-top: 10px;
     padding: 20px; /* add some padding */
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url("boxbaggrund.png");
     box-shadow: gray;
     backdrop-filter: blur(9px); /* add the blur effect */
+    border-radius: 8px;
 }
 
 /* Style for the heading */
@@ -20,11 +21,11 @@
     text-align: center;
     color: #a163de;
     text-shadow: #602f91;
-    font-family: Copperplate, Papyrus, fantasy;
     font-size: 45px;
-    margin-top: 50px; /* add some margin to separate it from the box */
+    margin-top: 65px; /* add some margin to separate it from the box */
     letter-spacing: 2px; /* add some letter spacing */
     text-transform: uppercase; /* make it all uppercase */
+    position: relative;
 }
 
 /* Style for the body */
@@ -33,7 +34,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-}
+}*
 
 /* Style for the form */
 .wishlist-form {
@@ -60,6 +61,8 @@
 
 form input[type="submit"] {
     width: 100%;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 

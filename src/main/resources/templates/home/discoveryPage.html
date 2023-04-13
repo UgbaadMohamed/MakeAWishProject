@@ -1,15 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="homeCss.css">
+    <script src="https://kit.fontawesome.com/d17da6709b.js"> </script>
 </head>
 <body>
+
+
+<div id="menuHeader">
+    Make A Wish
+</div>
+<a class="active" href="#home" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
+<a href="/discoveryPage" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
+<div id="search-input">
+    <input type="text" placeholder="Search..">
+</div>
+<nav>
+    <ul>
+    </ul>
+</nav>
+<div id="positionForlogout">
+    <a href="registration.html" class="logout-button">
+        <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #a86cd0;"></i>
+    </a>
+</div>
+
+---
+<div class="discoverylist">
 <h1> Friends discovery page </h1>
 
 <thead>
 <tr>
-    <th>Wishlist ID</th>
+
     <th>Wishlist Name</th>
     <th>Item Name</th>
     <th>Item Description</th>
@@ -17,13 +42,17 @@
 </tr>
 </thead>
 
+<table>
 <tr th:each="wishlist: ${lists}">
-    <td th:text="${wishlist.wishlist_id}"/>
     <td th:text="${wishlist.wishlist_name}"/>
     <td th:text="${wishlist.item_name}"/>
     <td th:text="${wishlist.item_description}"/>
+
 </tr>
+</table>
+</div>
 
-
+<div class="foto">
+</div>
 </body>
 </html>
