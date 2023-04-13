@@ -37,7 +37,7 @@ public class HomeController {
         return "home/homePage";
     }
 
-    @PostMapping ("/login/{username}/{user_password}")
+    @PostMapping ("/login")
     public String login(@RequestParam("username") String username, @RequestParam("user_password")
     String user_password, Model model) {
         model.addAttribute("user", userService.validateLogin(username, user_password));
