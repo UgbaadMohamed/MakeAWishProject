@@ -32,11 +32,8 @@ public class WishListRepo {
         String sql= "Insert into wishlist(wishlist_id, wishlist_name,wishlist_description) VALUES (?, ?, ?)";
         template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getWishlist_description());
     }
-
-
-
-
-
+    
+    
     public Boolean deletewishlist(int id){
         String sql = "DELETE FROM wishlist WHERE wishlist_id=?";
         return template.update(sql, id) > 0;

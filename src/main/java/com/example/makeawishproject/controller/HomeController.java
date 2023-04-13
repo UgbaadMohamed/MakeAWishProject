@@ -52,8 +52,7 @@ public class HomeController {
     }*/
 
     @GetMapping("/addItem")
-    public String addItem()
-    {
+    public String addItem() {
         return "home/addItem";
     }
 
@@ -70,9 +69,9 @@ public class HomeController {
     public String viewWishList(@PathVariable("wishlist_id") int wishlist_id,Model model) {
         List<Item> items =itemService.viewWishlist(wishlist_id);
         model.addAttribute("items", items);
+        System.out.println(items);
         return "home/viewWishList";
     }
-
 
 
 

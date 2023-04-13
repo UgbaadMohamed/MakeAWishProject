@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+<body>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="topBar.css">
     <link rel="stylesheet" type="text/css" href="homepageCSS.css">
+    <link rel="stylesheet" type="text/css" href="background.css">
+    <link rel="stylesheet" type="text/css" href="buttons.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://kit.fontawesome.com/d17da6709b.js"> </script>
 </head>
 <body>
-<h1 style="background-color: mediumpurple">MAKE A WISH</h1>
-
-<div class="topnav">
-    <a class="active" href="#home">Home</a>
-    <a href="#Discovery">Discovery</a>
-    <input type="text" placeholder="Search..">
+<div id="menuHeader">
+    Make a wish
 </div>
 
+<a class="active" href="#home" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
+<a href="#Discovery" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
+<div id="search-input">
+    <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
+    <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
+
+</div>
+<nav>
+    <ul>
+    </ul>
+</nav>
+<div id="positionForlogout">
+    <a href="registration.html" class="logout-button">
+        <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #a86cd0;"></i>
+    </a>
+</div>
+<div class="foto">
+</div>
+</body>
 <a href="/createList">
     <button class="btn wishlist-button" id="btn-create">Create a wishlist</button>
 </a>
 
 <div class="wishlist-container" style="display: flex; flex-wrap: wrap;">
     <!-- Loop through the wishlists and display their information -->
-    <div th:each="wishlist: ${wishlists}" class="sky-card">
-        <div class="wishlistname">
-            <p th:text="${wishlist.wishlist_name}"></p>
-            <p th:text="${wishlist.wishlist_description}"></p>
-            <p th:text="${wishlist.count}"></p>
-        </div>
+        <div th:each="wishlist: ${wishlists}" class="sky-card">
+            <div class="wishlistname">
+                <p th:text="${wishlist.wishlist_name}"></p>
+                <span class="wishlist-count" th:text="${wishlist.count}"></span>
+            </div>
+            <p class="wishlist-description" th:text="${wishlist.wishlist_description}"></p>
+            <p class="wishlist-id" th:text="'Share Code:' + ${wishlist.wishlist_id}"></p>
 
-        <a href="/addItem">
-            <button class="add-item-button">Add Item</button>
-        </a>
-        </div>
-
-        <a th:href="@{'/viewWishList/'+${wishlist.wishlist_id}}">
-            <button class="view wishlist"> view</button>
-        </a>
-
-        <a th:href="@{'/deleteWishlist/'+${wishlist.wishlist_id}}">
-            <button class="btn-deleteWishlist" id="btn-deleteWishlist">X</button>
-        </a>
+            <div class="social-media-icons">
+                <a href="#" title="Share"><i class="fa-solid fa-share fa-lg" style="color: black;"></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="mailto:?subject=@ViewBag.Title&amp;body=:@Url.Encode(Request.Url.ToString())" target="_blank" title="Email"><i class="fa-regular fa-envelope fa-lg" style="color:#518ee0;"></i></a>&nbsp;&nbsp;&nbsp;
+                <a href="https://twitter.com/intent/tweet?url=@Url.Encode(Request.Url.ToString())&text=@Url.Encode(PageTitle)" target="_blank" title="Tweet"><i class="fa-brands fa-twitter fa-lg"style="color:#518ee0;;"></i></a>
+            </div>
+            <div class="wishlist-buttons">
+                <a th:href="@{'/viewWishList/'+${wishlist.wishlist_id}}">
+                    <button class="view wishlist"><i class="fa-solid fa-eye"></i></button>
+                </a>
+                <a href="/addItem">
+                    <button class="add-item-button"><i class="fa-solid fa-plus"></i></button>
+                </a>
+                <a th:href="@{'/deleteWishlist/'+${wishlist.wishlist_id}}">
+                    <button class="btn-deleteWishlist" id="btn-deleteWishlist"><i class="fa-solid fa-trash-can"></i></button>
+                </a>
+            </div>
         </div>
     </div>
 </body>

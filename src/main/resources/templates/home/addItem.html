@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="background.css">
+    <script src="https://kit.fontawesome.com/d17da6709b.js"> </script>
 </head>
 <body>
-    <h1>Add item</h1>
+<div id="menuHeader">
+    Make a wish
+</div>
+<a class="active" href="#home" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
+<a href="#Discovery" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
+<div id="search-input">
+    <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
+    <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
+
+</div>
+<nav>
+    <ul>
+    </ul>
+</nav>
+<div id="positionForlogout">
+    <a href="registration.html" class="logout-button">
+        <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #a86cd0;"></i>
+    </a>
+</div>
+<div class="foto">
+</div>
+
+<div class="wishlist-box">
+<h1>Add item</h1>
     <form action="/addItemToWishlist" method="post">
 
         <label for="item_name">Item Name:</label>
@@ -14,10 +39,11 @@
         <label for="item_description">Item Description:</label>
         <input type="text" name="item_description" id="item_description">
 
-        <label for="wishlist_id">Wishlist id:</label>
+        <label for="wishlist_id">Wishlist Code:</label>
         <input type="text" name="wishlist_id" id="wishlist_id">
 
         <input type="submit" value="Add Item"/>
     </form>
+</div>
 </body>
 </html>
