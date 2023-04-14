@@ -1,5 +1,4 @@
 package com.example.makeawishproject.Service;
-import com.example.makeawishproject.model.UserModel;
 import com.example.makeawishproject.model.WishList;
 import com.example.makeawishproject.repository.WishListRepo;
 import org.springframework.beans.factory.annotation.Autowired;
