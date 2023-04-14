@@ -21,7 +21,7 @@
 }
 
 
-.add-item-button, .view.wishlist, .btn-deleteWishlist {
+.add-item-button, .view.wishlist, .btn-deleteWishlist, .btn-editItems, .btn-deleteItem {
     padding: 8px 12px;
     border: none;
     border-radius: 5px;
@@ -40,6 +40,11 @@
     position: absolute;
     z-index: 2;
 }
+.view.wishlist:hover, .add-item-button:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
 
 .add-item-button {
     top: 166px;
@@ -49,10 +54,6 @@
     z-index: 1;
 }
 
-.view.wishlist:hover, .add-item-button:hover {
-    background-color: transparent;
-    color: #fff;
-}
 
 .btn-deleteWishlist {
     top: 170px;
@@ -80,6 +81,22 @@
 }
 
 .btn-deleteItem:hover {
+    background-color: #555;
+}
+
+
+.btn-editItems {
+    top: 170px;
+    margin-left: 110px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+}
+
+.btn-editItem:hover {
     background-color: #555;
 }
 

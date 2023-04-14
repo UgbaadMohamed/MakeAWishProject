@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/editWishlistItems" method="post">
+    <input type="text" name="item_id" th:value="${item.item_id}" readonly>
+    <input type="text" name="item_name" th:value="${item.item_name}">
+    <input type="text" name="item_description" th:value="${item.item_description}">
+    <input type="submit" value="Save changes" style="background-color: #4CAF50">
+</form>
+</body>
+</html>

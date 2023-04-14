@@ -28,6 +28,12 @@ public class WishListRepo {
     }
 
 
+
+    public boolean find(int wishlistId) {
+        String sql = "SELECT 1 FROM wishlist WHERE wishlist_id = ?";
+        return template.queryForObject(sql, Integer.class, wishlistId) != null;
+    }
+
     public void createWishList(WishList u){
         String sql= "Insert into wishlist(wishlist_id, wishlist_name,wishlist_description) VALUES (?, ?, ?)";
         template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getWishlist_description());

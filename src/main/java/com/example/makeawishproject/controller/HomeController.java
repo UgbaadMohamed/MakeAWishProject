@@ -4,6 +4,8 @@ import com.example.makeawishproject.model.WishList;
 import com.example.makeawishproject.service.ItemService;
 import com.example.makeawishproject.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -74,7 +76,6 @@ public class HomeController {
             return "redirect:/";
         }
     }
-
     @GetMapping("/deleteItem/{id}")
     public String deleteItem(@PathVariable("id")int id){
         boolean deleted= itemService.deleteItem(id);
@@ -86,5 +87,15 @@ public class HomeController {
         }
     }
 
+    @GetMapping("/editItems/{item_id}")
+    public String editItems(@PathVariable("item_id") int id, Model model){
+        model.addAttribute("item", itemService.findPersonById(id));
+        return "home/viewWishList";
+    }
 
+    @PostMapping("/editWishlistItems")
+    public String editWishlistItems(@ModelAttribute Item item ){
+        itemService.editItem(item.getItem_id(), item);
+        return "redirect:/";
+    }
 }

@@ -17,7 +17,6 @@ public class ItemRepo {
     @Autowired
     JdbcTemplate template;
 
-
     public List<Item> fetchItems(){
         String sql = "SELECT distinct item_id, item_name, item_description, w.wishlist_id\n" +
                 "FROM item i JOIN wishlist w ON i.wishlist_id = w.wishlist_id";
@@ -26,12 +25,10 @@ public class ItemRepo {
     }
 
 
-
     public void addItem(Item i) {
         String sql = "INSERT INTO item (item_id, item_name, item_description, wishlist_id) VALUES (?, ?, ?, ?)";
         template.update(sql, i.getItem_id(), i.getItem_name(), i.getItem_description(), i.getWishlist_id());
     }
-
 
 
     public List<Item> viewWishlist(int wishlist_id) {
@@ -44,9 +41,23 @@ public class ItemRepo {
         return template.query(sql, rowMapper, wishlist_id);
     }
 
-    public Boolean deleteItem(int id){
+    public Boolean deleteItem(int item_id){
         String sql = "DELETE FROM item WHERE item_id=?";
-        return template.update(sql, id) > 0;
+        return template.update(sql, item_id) > 0;
+    }
+
+
+    public Item findPersonById(int id){
+        String sql="SELECT * FROM item WHERE item_id=?";
+        RowMapper<Item> rowMapper= new BeanPropertyRowMapper<>(Item.class);
+        Item i= template.queryForObject(sql, rowMapper, id);
+        return i;
+    }
+
+    public void editItem(int item_id, Item i){
+        String sql="UPDATE item SET item_name = ?, item_description = ? WHERE item_id = ?";
+        template.update(sql, i.getItem_name(), i.getItem_description(), i.getItem_id());
+
     }
 
 }
