@@ -22,7 +22,13 @@ public class WishListService {
         wishListRepo.createWishList(w);
     }
 
+
+
+    public Boolean deletewishlist(int id){
+        return wishListRepo.deletewishlist(id);
     public List<WishList> discovery(){
         return wishListRepo.discoveryPage();
     }
+
 }
+

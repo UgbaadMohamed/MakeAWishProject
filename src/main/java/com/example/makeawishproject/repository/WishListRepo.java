@@ -17,12 +17,14 @@ public class WishListRepo {
     public List<WishList> fetchWishList(){
         String sql = "SELECT * FROM wishlist";
         RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
-        return template.query(sql, rowMapper);
-    }
-
-    public void createWishList(WishList u){
-        String sql= "Insert into wishlist(wishlist_id, wishlist_name, item_name, item_description) VALUES (?, ?, ?, ?)";
-        template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getItem_name(), u.getItem_description());
+        List<WishList> wishLists = template.query(sql, rowMapper);
+        for (WishList w:wishLists) {
+            int id = w.getWishlist_id();
+            String sql2 = "SELECT COUNT(item_id) FROM item WHERE wishlist_id = ?";
+            int count = template.queryForObject(sql2, Integer.class,id);
+            w.setCount(count);
+        }
+        return wishLists;
     }
     public List<WishList>  discoveryPage(){
         String sql = "SELECT * FROM wishlist";
@@ -31,21 +33,18 @@ public class WishListRepo {
     }
 
 
-    public void updateAddItem(int wishlistId, String wishlistName, String itemName, String itemDescription) {
-        String sql = "INSERT INTO wishlist(wishlist_id, wishlist_name, item_name, item_description) VALUES (?, ?, ?, ?)";
-        template.update(sql, wishlistId, wishlistName, itemName, itemDescription);
+    public void createWishList(WishList u){
+        String sql= "Insert into wishlist(wishlist_id, wishlist_name,wishlist_description) VALUES (?, ?, ?)";
+        template.update(sql, u.getWishlist_id(), u.getWishlist_name(), u.getWishlist_description());
     }
-
-
+    
+    
     public Boolean deletewishlist(int id){
         String sql = "DELETE FROM wishlist WHERE wishlist_id=?";
         return template.update(sql, id) > 0;
     }
 
-    public Boolean deleteItem(int id){
-        String sql = "DELETE FROM wishlist WHERE item_name=? AND item_description=?";
-        return template.update(sql, id) > 0;
-    }
+
 
 
 }
