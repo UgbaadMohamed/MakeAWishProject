@@ -23,9 +23,10 @@ public class WishListService {
     }
 
 
-
     public Boolean deletewishlist(int id){
         return wishListRepo.deletewishlist(id);
+
+        }
     public List<WishList> discovery(){
         return wishListRepo.discoveryPage();
     }

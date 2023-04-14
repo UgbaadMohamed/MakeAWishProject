@@ -26,7 +26,7 @@ public class WishListRepo {
         }
         return wishLists;
     }
-    public List<WishList>  discoveryPage(){
+    public List<WishList> discoveryPage(){
         String sql = "SELECT * FROM wishlist";
         RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
         return template.query(sql, rowMapper);
