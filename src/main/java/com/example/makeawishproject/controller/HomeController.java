@@ -65,7 +65,7 @@ public class HomeController {
     @PostMapping("/makeList")
     public String makeList(@ModelAttribute WishList wishList){
         wishListService.createWishList(wishList);
-        return "redirect:/";
+        return "home/homePage";
     }
 
 
