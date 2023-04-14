@@ -1,15 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/background.css">
+    <script src="https://kit.fontawesome.com/d17da6709b.js"> </script>
 </head>
 <body>
-<form action="/editWishlistItems" method="post">
-    <input type="text" name="item_id" th:value="${item.item_id}" readonly>
-    <input type="text" name="item_name" th:value="${item.item_name}">
-    <input type="text" name="item_description" th:value="${item.item_description}">
-    <input type="submit" value="Save changes" style="background-color: #4CAF50">
-</form>
+<div id="menuHeader">
+    Make a wish
+</div>
+<a class="active" href="#home" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
+<a href="#Discovery" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
+<div id="search-input">
+    <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
+    <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
+
+</div>
+<nav>
+    <ul>
+    </ul>
+</nav>
+<div id="positionForlogout">
+    <a href="registration.html" class="logout-button">
+        <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #a86cd0;"></i>
+    </a>
+</div>
+<div class="foto">
+</div>
+
+<div class="wishlist-box">
+    <form action="/editWishlistItems" method="post">
+
+        <label for="item_id">Item ID:</label>
+        <input type="text" id="item_id" name="item_id" th:value="${item.item_id}" readonly>
+
+        <label for="item_name">Item Name:</label>
+        <input type="text" id="item_name" name="item_name" th:value="${item.item_name}">
+
+         <label for="item_description">Item Description:</label>
+         <input type="text" id="item_description" name="item_description" th:value="${item.item_description}">
+
+         <input type="submit" value="Save changes" style="background-color: #4CAF50">
+
+     </form>
+   </div>
 </body>
 </html>

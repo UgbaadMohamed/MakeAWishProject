@@ -90,7 +90,7 @@ public class HomeController {
     @GetMapping("/editItems/{item_id}")
     public String editItems(@PathVariable("item_id") int id, Model model){
         model.addAttribute("item", itemService.findPersonById(id));
-        return "home/viewWishList";
+        return "home/editItems";
     }
 
     @PostMapping("/editWishlistItems")

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="background.css">
+    <link rel="stylesheet" type="text/css" href="/background.css">
     <script src="https://kit.fontawesome.com/d17da6709b.js"> </script>
 </head>
 <body>
@@ -30,7 +30,9 @@
 </div>
 
 <div class="wishlist-box">
+<table id="edit-items">
 <h1>Add item</h1>
+
     <form action="/addItemToWishlist" method="post">
 
         <label for="item_name">Item Name:</label>
@@ -44,8 +46,8 @@
 
         <input type="submit" value="Add Item"/>
 
-
     </form>
+</table>
 </div>
 </body>
 </html>
