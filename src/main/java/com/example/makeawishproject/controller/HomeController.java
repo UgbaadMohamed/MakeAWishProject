@@ -101,8 +101,13 @@ public class HomeController {
 
     @GetMapping("/viewSearch")
     public String viewSearch(@RequestParam("wishlist_id") int wishlist_id, Model model) {
+
         List<WishList> wishlists = wishListService.findWishlist(wishlist_id);
         model.addAttribute("wishlists", wishlists);
+
+        List<Item> items = itemService.viewWishlist(wishlist_id);
+        model.addAttribute("items", items);
+
         return "home/showWishlist";
     }
 

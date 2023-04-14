@@ -28,8 +28,8 @@ public class ItemRepo {
 
 
     public void addItem(Item i) {
-        String sql = "INSERT INTO item (item_id, item_name, item_description, wishlist_id) VALUES (?, ?, ?, ?)";
-        template.update(sql, i.getItem_id(), i.getItem_name(), i.getItem_description(), i.getWishlist_id());
+        String sql = "INSERT INTO item (item_id, item_name, item_description, wishlist_id, reserved) VALUES (?, ?, ?, ?,?)";
+        template.update(sql, i.getItem_id(), i.getItem_name(), i.getItem_description(), i.getWishlist_id(),0 );
     }
 
 

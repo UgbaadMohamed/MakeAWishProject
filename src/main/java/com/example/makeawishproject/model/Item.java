@@ -5,16 +5,18 @@ public class Item {
         private int item_id;
         private String item_description;
         private int wishlist_id;
+        private boolean reserved;
 
         public Item() {
 
         }
 
-        public Item(String item_name, int item_id, String item_description, int wishlist_id) {
+        public Item(String item_name, int item_id, String item_description, int wishlist_id, boolean reserved) {
             this.item_name = item_name;
             this.item_id = item_id;
             this.item_description = item_description;
             this.wishlist_id = wishlist_id;
+            this.reserved = reserved;
         }
 
         public int getWishlist_id() {
@@ -48,7 +50,17 @@ public class Item {
             this.item_id = item_id;
         }
 
-        @Override
+    public boolean isReserved()
+    {
+        return reserved;
+    }
+
+    public void setReserved(boolean reserved)
+    {
+        this.reserved = reserved;
+    }
+
+    @Override
         public String toString() {
             return "Item{" +
                     "item_name='" + item_name + '\'' +

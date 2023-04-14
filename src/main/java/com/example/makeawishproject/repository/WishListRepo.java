@@ -39,7 +39,7 @@ public class WishListRepo {
     }
 
     public List <WishList> findWishlist(int wishlist_id) {
-        String sql = "SELECT w.wishlist_name, i.item_name, i.item_description, w.wishlist_id\n" +
+        String sql = "SELECT w.wishlist_name, i.item_name, i.item_description, w.wishlist_id\n " +
                 "FROM wishlist w\n" +
                 "LEFT JOIN item i ON w.wishlist_id = i.wishlist_id\n" +
                 "WHERE w.wishlist_id = ?\n";
