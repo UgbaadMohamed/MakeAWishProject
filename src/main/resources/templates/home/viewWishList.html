@@ -12,8 +12,13 @@
         <td th:text="${item.item_id}"></td>
         <td th:text="${item.item_name}"></td>
         <td th:text="${item.item_description}"></td>
+
+        <a th:href="@{'/deleteItem/'+${item.item_id}}">
+            <button class="btn-deleteItem" id="btn-deleteWishlist"><i class="fa-solid fa-trash-can"></i></button>
+        </a>
     </tr>
     </tbody>
+
 </table>
 </body>
 </html>
