@@ -141,6 +141,12 @@ public class HomeController {
         }
     }
 
+    @PostMapping("/reserveItem")
+    public String reserveItem(@ModelAttribute Item i){
+        itemService.reserveItem(i);
+        return "redirect:/homePage";
+    }
+
 
 }
 

@@ -24,12 +24,11 @@ public class ItemService {
         itemRepo.addItem(i);
     }
 
-
     public List<Item> viewWishlist(int wishlist_id){
         return itemRepo.viewWishlist(wishlist_id);
     }
 
-
-
-
+    public void reserveItem(Item i){
+        itemRepo.reserveItem(i);
+    }
 }

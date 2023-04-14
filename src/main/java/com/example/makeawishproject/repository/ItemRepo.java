@@ -25,14 +25,11 @@ public class ItemRepo {
         return template.query(sql, rowMapper);
     }
 
-
-
     public void addItem(Item i) {
-        String sql = "INSERT INTO item (item_id, item_name, item_description, wishlist_id, reserved) VALUES (?, ?, ?, ?,?)";
-        template.update(sql, i.getItem_id(), i.getItem_name(), i.getItem_description(), i.getWishlist_id(),0 );
+        String sql = "INSERT INTO item (item_id, item_name, item_description, wishlist_id, reserved) VALUES (?, ?," +
+                " ?, ?, ?)";
+        template.update(sql, i.getItem_id(), i.getItem_name(), i.getItem_description(), i.getWishlist_id(), 0);
     }
-
-
 
     public List<Item> viewWishlist(int wishlist_id) {
         String sql = "\n" +
@@ -44,7 +41,8 @@ public class ItemRepo {
         return template.query(sql, rowMapper, wishlist_id);
     }
 
-
-
-
+    public void reserveItem(Item i){
+         String sql = "UPDATE item SET reserved = ? WHERE item_id = ?";
+         template.update(sql, 1, i.getItem_id());
+    }
 }
