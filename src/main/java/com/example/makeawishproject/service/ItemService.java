@@ -30,8 +30,8 @@ public class ItemService {
     }
 
 
-    public Boolean deleteItem(int id){
-        return itemRepo.deleteItem(id);
+    public Boolean deleteItem(int item_id){
+        return itemRepo.deleteItem(item_id);
     }
 
 

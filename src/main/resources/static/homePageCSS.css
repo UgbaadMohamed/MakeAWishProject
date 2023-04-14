@@ -15,6 +15,7 @@
     /* Set width and height */
     width: 300px;
     height: 200px;
+    top: 60px;
     /* Add margin to create some space between cards */
     margin: 20px;
     /* Add rounded corners to the card */

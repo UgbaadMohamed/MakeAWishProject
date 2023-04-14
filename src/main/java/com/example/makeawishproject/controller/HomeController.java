@@ -41,15 +41,7 @@ public class HomeController {
         wishListService.createWishList(wishList);
         return "redirect:/";
     }
-
-
-
-    /*@GetMapping("/addItem/{wishlistId}/{item_id}")
-    public String addItemForm(@PathVariable("wishlistId") int wishlistId, @PathVariable("item_id") int item_id, Model model){
-        model.addAttribute("wishlist", wishlistId);
-        model.addAttribute("item", item_id);
-        return "home/addItem";
-    }*/
+    
 
     @GetMapping("/addItem")
     public String addItem() {
@@ -64,7 +56,6 @@ public class HomeController {
     }
 
 
-
     @GetMapping("/viewWishList/{wishlist_id}")
     public String viewWishList(@PathVariable("wishlist_id") int wishlist_id,Model model) {
         List<Item> items =itemService.viewWishlist(wishlist_id);
@@ -72,7 +63,6 @@ public class HomeController {
         System.out.println(items);
         return "home/viewWishList";
     }
-
 
 
     @GetMapping("/deleteWishlist/{id}")
@@ -85,6 +75,7 @@ public class HomeController {
             return "redirect:/";
         }
     }
+
     @GetMapping("/deleteItem/{id}")
     public String deleteItem(@PathVariable("id")int id){
         boolean deleted= itemService.deleteItem(id);
@@ -95,4 +86,6 @@ public class HomeController {
             return "redirect:/";
         }
     }
+
+
 }

@@ -1,23 +1,26 @@
 /* Style for the "Create a wishlist" button */
 .wishlist-button {
-    border-radius: 10px;
-    border: 1px solid lavenderblush;
-    background-color: #bfaaaf;
-    color: #ffffff;
-    font-size: 12px;
+    border: 1px solid #555;
+    background-color: #dfdfed;
+    color: black;
+    font-size: 24px;
     font-weight: bold;
     padding: 12px 40px;
     margin-bottom: 90px;
-    margin-top: 30px;
-    /* Add some letter spacing */
+    margin-top: 45px;
     letter-spacing: 1px;
-    /* Capitalize the text */
     text-transform: uppercase;
     cursor: pointer;
     z-index: 1;
     position: absolute;
-
+    left: 50%;
+    transform: translateX(-50%);
 }
+.wishlist-button:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+
 .add-item-button, .view.wishlist, .btn-deleteWishlist {
     padding: 8px 12px;
     border: none;
@@ -63,6 +66,20 @@
 }
 
 #btn-deleteWishlist:hover {
+    background-color: #555;
+}
+.btn-deleteItem {
+    top: 170px;
+    margin-left: 110px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+}
+
+.btn-deleteItem:hover {
     background-color: #555;
 }
 
