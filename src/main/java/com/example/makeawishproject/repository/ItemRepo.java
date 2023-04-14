@@ -44,9 +44,7 @@ public class ItemRepo {
         return template.query(sql, rowMapper, wishlist_id);
     }
 
-    public Boolean deleteItem(int id){
-        String sql = "DELETE FROM item WHERE item_id=?";
-        return template.update(sql, id) > 0;
-    }
+
+
 
 }

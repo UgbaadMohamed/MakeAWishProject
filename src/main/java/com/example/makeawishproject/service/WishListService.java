@@ -14,22 +14,28 @@ public class WishListService {
     WishListRepo wishListRepo;
 
 
-    public List<WishList> fetchWishList(){
-        return wishListRepo.fetchWishList();
+    public List<WishList> fetchWishList(int user_id){
+        return wishListRepo.fetchWishList(user_id);
     }
 
-    public void createWishList(WishList w){
-        wishListRepo.createWishList(w);
+    public void createWishList(WishList w, int user_id){
+        wishListRepo.createWishList(w, user_id);
     }
 
 
-    public Boolean deletewishlist(int id){
-        return wishListRepo.deletewishlist(id);
+    public Boolean deleteWishlist(int id){
+        return wishListRepo.deleteWishlist(id);
 
         }
     public List<WishList> discovery(){
         return wishListRepo.discoveryPage();
     }
+
+    public List<WishList> findWishlist (int wishlist_id) {
+        return wishListRepo.findWishlist(wishlist_id);
+    }
+
+
 
 }
 

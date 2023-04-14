@@ -1,7 +1,7 @@
 /* Style for the box */
 .wishlist-box {
     background-color: floralwhite;
-    border: black;
+    border: 3px solid #b495ec;
     width: 400px;
     height: 400px;
     margin-top: 10px;
@@ -10,11 +10,26 @@
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url("boxbaggrund.png");
-    box-shadow: gray;
-    backdrop-filter: blur(9px); /* add the blur effect */
+    background: linear-gradient(to bottom, #decff6, #bb9efc);
     border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
+.wishlisjt-box {
+    border: 3px solid #b495ec;
+    padding: 105px;
+    margin: 20px 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to bottom, #decff6, #bb9efc);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    position: relative;
+    z-index: 2;
+    top:35px;
+    width: 200px;
+
+}
+
 
 /* Style for the heading */
 .page-title {

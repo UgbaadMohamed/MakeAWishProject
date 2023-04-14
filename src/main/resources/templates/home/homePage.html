@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,26 +14,29 @@
 </head>
 <body>
 <div id="menuHeader">
-    Make a wish
+    Make A Wish
 </div>
 
-<a class="active" href="#home" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
-<a href="#Discovery" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
+<a href="homePage" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
+<a href="discoveryPage" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
 <div id="search-input">
-    <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
-    <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
-
+    <form action="/viewSearch" method="GET">
+        <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
+        <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
+    </form>
 </div>
 <nav>
     <ul>
     </ul>
 </nav>
 <div id="positionForlogout">
-    <a href="registration.html" class="logout-button">
+    <a href="/" class="logout-button">
         <i class="fa-solid fa-right-from-bracket fa-xl" style="color: #a86cd0;"></i>
     </a>
 </div>
 <div class="foto">
+
+
 </div>
 </body>
 <a href="/createList">
@@ -59,7 +62,7 @@
                 <a th:href="@{'/viewWishList/'+${wishlist.wishlist_id}}">
                     <button class="view wishlist"><i class="fa-solid fa-eye"></i></button>
                 </a>
-                <a href="/addItem">
+                <a th:href="@{'/addItem/'+${wishlist.wishlist_id}}">
                     <button class="add-item-button"><i class="fa-solid fa-plus"></i></button>
                 </a>
                 <a th:href="@{'/deleteWishlist/'+${wishlist.wishlist_id}}">
@@ -68,6 +71,7 @@
             </div>
         </div>
     </div>
+
 </body>
 </html>
 
