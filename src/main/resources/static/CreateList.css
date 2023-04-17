@@ -31,17 +31,6 @@
 }
 
 
-/* Style for the heading */
-.page-title {
-    text-align: center;
-    color: #a163de;
-    text-shadow: #602f91;
-    font-size: 45px;
-    margin-top: 65px; /* add some margin to separate it from the box */
-    letter-spacing: 2px; /* add some letter spacing */
-    text-transform: uppercase; /* make it all uppercase */
-    position: relative;
-}
 
 /* Style for the body */
 .page-body {

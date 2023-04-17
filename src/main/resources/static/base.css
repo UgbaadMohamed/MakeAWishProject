@@ -160,3 +160,16 @@ nav a {
     margin-left: 50%;
 }
 
+.page-title {
+    font-family:sans-serif;
+    text-align: center;
+    color: #b688e4;
+    text-shadow: #000000;
+    font-size: 40px;
+    margin-top: 65px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+
+}
+
