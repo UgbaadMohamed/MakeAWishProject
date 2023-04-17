@@ -60,6 +60,5 @@ public class ItemRepo {
     public void editItem(int item_id, Item i){
         String sql="UPDATE item SET item_name = ?, item_description = ? WHERE item_id = ?";
         template.update(sql, i.getItem_name(), i.getItem_description(), i.getItem_id());
-
     }
 }
