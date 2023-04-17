@@ -3,7 +3,7 @@
     height: 100%;
     font-family: sans-serif;
     margin-top: 0px;
-    background-image: url("baggrund.png");
+    background-image: url("images/baggrund.png");
     filter: blur(2px);
     background-repeat: no-repeat;
     background-size: cover;

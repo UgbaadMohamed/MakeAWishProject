@@ -1,7 +1,7 @@
 /* Style for the "Create a wishlist" button */
 .wishlist-button {
     border: 1px solid #555;
-    background-color: #dee2f5;
+    background-color: #eee8f9;
     color: black;
     font-size: 24px;
     font-weight: bold;
@@ -19,7 +19,6 @@
 .wishlist-button:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
-
 
 .add-item-button, .view.wishlist, .btn-deleteWishlist {
     padding: 8px 12px;

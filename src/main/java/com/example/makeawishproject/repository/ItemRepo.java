@@ -17,9 +17,8 @@ public class ItemRepo {
     @Autowired
     JdbcTemplate template;
 
-
     public List<Item> fetchItems(){
-        String sql = "SELECT distinct item_id, item_name, item_description, w.wishlist_id\n" +
+        String sql = "SELECT DISTINCT item_id, item_name, item_description, w.wishlist_id\n" +
                 "FROM item i JOIN wishlist w ON i.wishlist_id = w.wishlist_id";
         RowMapper<Item> rowMapper = new BeanPropertyRowMapper<>(Item.class);
         return template.query(sql, rowMapper);
@@ -33,7 +32,7 @@ public class ItemRepo {
 
     public List<Item> viewWishlist(int wishlist_id) {
         String sql = "\n" +
-                "SELECT distinct item_id, wishlist_description, item_name, item_description, w.wishlist_id\n" +
+                "SELECT DISTINCT item_id, wishlist_description, item_name, item_description, w.wishlist_id\n" +
                 "FROM item i\n" +
                 "\tJOIN wishlist w ON i.wishlist_id = w.wishlist_id\n" +
                 " WHERE w.wishlist_id = ?; ";

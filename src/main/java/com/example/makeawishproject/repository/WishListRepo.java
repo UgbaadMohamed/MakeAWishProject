@@ -18,7 +18,8 @@ public class WishListRepo {
         String sql = "SELECT * FROM wishlist WHERE user_id = ?";
         RowMapper<WishList> rowMapper = new BeanPropertyRowMapper<>(WishList.class);
         List<WishList> wishLists = template.query(sql, rowMapper, user_id);
-        for (WishList w:wishLists) {
+
+        for (WishList w : wishLists) {
             int id = w.getWishlist_id();
             String sql2 = "SELECT COUNT(item_id) FROM item WHERE wishlist_id = ?";
             int count = template.queryForObject(sql2, Integer.class,id);
@@ -39,6 +40,7 @@ public class WishListRepo {
     }
 
     public List <WishList> findWishlist(int wishlist_id) {
+        //Left join wishlist for at sikre, at tomme wishlists også bliver fremvist
         String sql = "SELECT w.wishlist_name, i.item_name, i.item_description, w.wishlist_id\n " +
                 "FROM wishlist w\n" +
                 "LEFT JOIN item i ON w.wishlist_id = i.wishlist_id\n" +

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="homepageCSS.css">
+    <link rel="stylesheet" type="text/css" href="homePage.css">
     <link rel="stylesheet" type="text/css" href="background.css">
     <link rel="stylesheet" type="text/css" href="buttons.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,8 +20,8 @@
 <a href="homePage" style="margin-top: 40px; color: #a174d7;" id="home-botton">Home</a>
 <a href="discoveryPage" style=" color: #a174d7;" id="discovery-botton">Discovery</a>
 <div id="search-input">
-    <form action="/viewSearch" method="GET">
-        <input type="text" placeholder="   Search on your friends wishlists.." name="wishlist_id" required>
+    <form action="/viewWishlistFromSearchbar" method="GET">
+        <input type="text" placeholder="Search on your friend's wishlist..." name="wishlist_id" required>
         <button type="submit" id="search-submit"><i class="fa fa-search"></i></button>
     </form>
 </div>
@@ -51,7 +51,7 @@
                 <span class="wishlist-count" th:text="${wishlist.count}"></span>
             </div>
             <p class="wishlist-description" th:text="${wishlist.wishlist_description}"></p>
-            <p class="wishlist-id" th:text="'Share Code:' + ${wishlist.wishlist_id}"></p>
+            <p class="wishlist-id" th:text="'Share Code: ' + ${wishlist.wishlist_id}"></p>
 
             <div class="social-media-icons">
                 <a href="#" title="Share"><i class="fa-solid fa-share fa-lg" style="color: black;"></i></a>&nbsp;&nbsp;&nbsp;

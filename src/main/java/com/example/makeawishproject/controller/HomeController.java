@@ -41,7 +41,7 @@ public class HomeController {
         return "home/registration";
     }
 
-    @PostMapping("/NewRegistration")
+    @PostMapping("/newRegistration")
     public String NewRegistration(@ModelAttribute User user, @RequestParam("username") String username,
                                   @RequestParam("user_password") String user_password){
         userService.createNewUser(user);
@@ -96,11 +96,11 @@ public class HomeController {
     public String discoveryPage(Model model) {
         List<WishList> wishlist = wishListService.discovery();
         model.addAttribute("lists", wishlist);
-        return "home/discoveryTest";
+        return "home/discoveryPage";
     }
 
-    @GetMapping("/viewSearch")
-    public String viewSearch(@RequestParam("wishlist_id") int wishlist_id, Model model) {
+    @GetMapping("/viewWishlistFromSearchbar")
+    public String viewWishlistFromSearchbar(@RequestParam("wishlist_id") int wishlist_id, Model model) {
 
         List<WishList> wishlists = wishListService.findWishlist(wishlist_id);
         model.addAttribute("wishlists", wishlists);
@@ -146,7 +146,5 @@ public class HomeController {
         itemService.reserveItem(i);
         return "redirect:/homePage";
     }
-
-
 }
 
