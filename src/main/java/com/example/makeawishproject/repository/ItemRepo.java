@@ -44,4 +44,22 @@ public class ItemRepo {
          String sql = "UPDATE item SET reserved = ? WHERE item_id = ?";
          template.update(sql, 1, i.getItem_id());
     }
+
+    public Boolean deleteItem(int item_id){
+        String sql = "DELETE FROM item WHERE item_id = ?";
+        return template.update(sql, item_id) > 0;
+    }
+
+    public Item findPersonById(int id){
+        String sql="SELECT * FROM item WHERE item_id = ?";
+        RowMapper<Item> rowMapper= new BeanPropertyRowMapper<>(Item.class);
+        Item i= template.queryForObject(sql, rowMapper, id);
+        return i;
+    }
+
+    public void editItem(int item_id, Item i){
+        String sql="UPDATE item SET item_name = ?, item_description = ? WHERE item_id = ?";
+        template.update(sql, i.getItem_name(), i.getItem_description(), i.getItem_id());
+
+    }
 }

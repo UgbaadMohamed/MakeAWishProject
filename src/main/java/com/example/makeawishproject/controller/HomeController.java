@@ -42,7 +42,7 @@ public class HomeController {
     }
 
     @PostMapping("/newRegistration")
-    public String NewRegistration(@ModelAttribute User user, @RequestParam("username") String username,
+    public String newRegistration(@ModelAttribute User user, @RequestParam("username") String username,
                                   @RequestParam("user_password") String user_password){
         userService.createNewUser(user);
         user_id = userService.getUser_id(username, user_password);
@@ -123,13 +123,6 @@ public class HomeController {
         return "redirect:/homePage";
     }
 
-    @GetMapping("/viewWishList/{wishlist_id}")
-    public String viewWishList(@PathVariable("wishlist_id") int wishlist_id, Model model) {
-        List<Item> items = itemService.viewWishlist(wishlist_id);
-        model.addAttribute("items", items);
-        System.out.println(items);
-        return "home/viewWishList";
-    }
 
     @GetMapping("/deleteWishlist/{id}")
     public String deleteWishlist(@PathVariable("id") int id) {
@@ -144,6 +137,36 @@ public class HomeController {
     @PostMapping("/reserveItem")
     public String reserveItem(@ModelAttribute Item i){
         itemService.reserveItem(i);
+        return "redirect:/homePage";
+    }
+
+    @GetMapping("/viewWishlist/{wishlist_id}")
+    public String viewWishlist(@PathVariable("wishlist_id") int wishlist_id,Model model) {
+        List<Item> items =itemService.viewWishlist(wishlist_id);
+        model.addAttribute("items", items);
+        return "home/viewWishlist";
+    }
+
+    @GetMapping("/deleteItem/{id}")
+    public String deleteItem(@PathVariable("id")int id){
+        boolean deleted= itemService.deleteItem(id);
+        if (deleted) {
+            return "redirect:/homePage";
+        }
+        else {
+            return "redirect:/homePage";
+        }
+    }
+
+    @GetMapping("/editItems/{item_id}")
+    public String editItems(@PathVariable("item_id") int id, Model model){
+        model.addAttribute("item", itemService.findPersonById(id));
+        return "home/editItems";
+    }
+
+    @PostMapping("/editWishlistItems")
+    public String editWishlistItems(@ModelAttribute Item item ){
+        itemService.editItem(item.getItem_id(), item);
         return "redirect:/homePage";
     }
 }

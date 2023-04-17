@@ -31,4 +31,15 @@ public class ItemService {
     public void reserveItem(Item i){
         itemRepo.reserveItem(i);
     }
+
+    public Boolean deleteItem(int item_id){
+        return itemRepo.deleteItem(item_id);
+    }
+
+    public Item findPersonById(int id){
+        return itemRepo.findPersonById(id);
+    }
+    public void editItem(int item_id, Item i){
+        itemRepo.editItem(item_id, i);
+    }
 }
