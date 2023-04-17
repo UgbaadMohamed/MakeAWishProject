@@ -4,8 +4,6 @@ import com.example.makeawishproject.model.WishList;
 import com.example.makeawishproject.service.ItemService;
 import com.example.makeawishproject.service.WishListService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -57,12 +55,12 @@ public class HomeController {
     }
 
 
-    @GetMapping("/viewWishList/{wishlist_id}")
-    public String viewWishList(@PathVariable("wishlist_id") int wishlist_id,Model model) {
+    @GetMapping("/viewWishlist/{wishlist_id}")
+    public String viewWishlist(@PathVariable("wishlist_id") int wishlist_id,Model model) {
         List<Item> items =itemService.viewWishlist(wishlist_id);
         model.addAttribute("items", items);
         System.out.println(items);
-        return "home/viewWishList";
+        return "home/viewWishlist";
     }
 
 

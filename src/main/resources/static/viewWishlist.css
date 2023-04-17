@@ -1,39 +1,33 @@
 .wishlist_box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    /* Set width and height */
+    width: 500px;
+    height: 400px;
+    top: 60px;
+    /* Add margin to create some space between cards */
+    margin: 20px;
+    /* Add rounded corners to the card */
+    border-radius: 5px;
+    /* Add a box shadow for a 3D effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /* Add a transition effect when hovering over the card */
+    transition: 0.3s;
     cursor: pointer;
     z-index: 1;
     position: relative;
-    background-color: #a174d7;
-    color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
 }
+.wishlist_box {
+    background-image: linear-gradient(180deg, #bb9efc, #e8c6e4, #decff6 100%);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-.wishlist_box table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-.wishlist_box td,
-.wishlist_box th {
-    border: 1px solid #e5e5e5;
-    text-align: left;
-    padding: 12px;
-}
-
-.wishlist_box th {
-    background-color: #f7f7f7;
-    font-weight: bold;
-    text-transform: uppercase;
 }
 
 .btn-editItems,
 .btn-deleteItem {
-    background-color: #a174d7;
     border: none;
     color: white;
     padding: 10px 18px;
@@ -48,7 +42,7 @@
 }
 
 .btn-deleteItem {
-    background-color: #e74c3c;
+    background-color: black;
 }
 
 .btn-editItems:hover,
@@ -61,6 +55,7 @@
     font-size: 24px;
     font-weight: bold;
     text-align: left;
+    color: #cc7eee;
 }
 
 .btn-editItems,
@@ -73,8 +68,4 @@
 .wishlist_box table caption {
     margin-bottom: 10px;
     font-size: 18px;
-}
-
-.label::before {
-    content: ": ";
 }

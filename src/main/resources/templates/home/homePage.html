@@ -43,6 +43,7 @@
 <div class="wishlist-container" style="display: flex; flex-wrap: wrap;">
     <!-- Loop through the wishlists and display their information -->
         <div th:each="wishlist: ${wishlists}" class="sky-card">
+
             <div class="wishlistname">
                 <p th:text="${wishlist.wishlist_name}"></p>
                 <span class="wishlist-count" th:text="${wishlist.count}"></span>
@@ -56,7 +57,7 @@
                 <a href="https://twitter.com/intent/tweet?url=@Url.Encode(Request.Url.ToString())&text=@Url.Encode(PageTitle)" target="_blank" title="Tweet"><i class="fa-brands fa-twitter fa-lg"style="color:#518ee0;;"></i></a>
             </div>
             <div class="wishlist-buttons">
-                <a th:href="@{'/viewWishList/'+${wishlist.wishlist_id}}">
+                <a th:href="@{'/viewWishlist/'+${wishlist.wishlist_id}}">
                     <button class="view wishlist"><i class="fa-solid fa-eye"></i></button>
                 </a>
                 <a href="/addItem">
