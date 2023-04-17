@@ -14,7 +14,7 @@ public class UserRepo {
     @Autowired
     private JdbcTemplate template;
 
-    public void NewUser(User u) {
+    public void createNewUser(User u) {
         String sql = "INSERT INTO user (user_id, first_name, last_name, address, username, user_password) VALUES (?, ?, ?, ?, ?, ?)";
         template.update(sql, u.getUser_id(), u.getFirst_name(), u.getLast_name(), u.getAddress(), u.getUsername(), u.getUser_password());
     }
