@@ -40,7 +40,7 @@
 </div>
 </body>
 <a href="/createList">
-    <button class="btn wishlist-button" id="btn-create">Create Your Wishlist</button>
+    <button class="btn wishlist-button" id="btn-create">Create a Wishlist</button>
 </a>
 
 <div class="wishlist-container" style="display: flex; flex-wrap: wrap;">
@@ -58,8 +58,10 @@
                 <a href="mailto:?subject=@ViewBag.Title&amp;body=:@Url.Encode(Request.Url.ToString())" target="_blank" title="Email"><i class="fa-regular fa-envelope fa-lg" style="color:#518ee0;"></i></a>&nbsp;&nbsp;&nbsp;
                 <a href="https://twitter.com/intent/tweet?url=@Url.Encode(Request.Url.ToString())&text=@Url.Encode(PageTitle)" target="_blank" title="Tweet"><i class="fa-brands fa-twitter fa-lg"style="color:#518ee0;;"></i></a>
             </div>
+
+
             <div class="wishlist-buttons">
-                <a th:href="@{'/viewWishList/'+${wishlist.wishlist_id}}">
+                <a th:href="@{'/viewWishlist/'+${wishlist.wishlist_id}}">
                     <button class="view wishlist"><i class="fa-solid fa-eye"></i></button>
                 </a>
                 <a th:href="@{'/addItem/'+${wishlist.wishlist_id}}">
