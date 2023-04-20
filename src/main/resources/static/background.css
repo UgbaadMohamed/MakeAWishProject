@@ -57,14 +57,14 @@ nav a {
     top: 42px;
     right: 43px;
 }
+
+
 #home-botton:hover,#discovery-botton:hover{
     background-color: #dbd2fd;
     color: #ffffff;
     /* Add a transition effect */
     transition: all 0.2s ease-in-out;
 }
-
-
 
 #home-botton {
     background-color: #ffffff;

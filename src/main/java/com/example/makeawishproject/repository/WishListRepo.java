@@ -40,7 +40,7 @@ public class WishListRepo {
     }
 
     public List <WishList> findWishlist(int wishlist_id) {
-        //Left join wishlist for at sikre, at tomme wishlists også bliver fremvist
+
         String sql = "SELECT w.wishlist_name, i.item_name, i.item_description, w.wishlist_id\n " +
                 "FROM wishlist w\n" +
                 "LEFT JOIN item i ON w.wishlist_id = i.wishlist_id\n" +
